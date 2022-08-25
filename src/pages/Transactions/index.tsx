@@ -1,11 +1,12 @@
 import { ReactElement } from "react";
 
-import { Header } from "../../components";
+import { Header, Summary } from "../../components";
 
 export const Transactions = (): ReactElement => {
   return (
     <div>
       <Header />
+      <Summary />
     </div>
   );
 };
