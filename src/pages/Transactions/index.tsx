@@ -1,6 +1,7 @@
 import { ReactElement } from "react";
 
 import { Header, Summary } from "../../components";
+import { SearchForm } from "./components/SearchForm";
 
 import * as S from "./styles";
 
@@ -11,6 +12,8 @@ export const Transactions = (): ReactElement => {
       <Summary />
 
       <S.TransactionsContainer>
+        <SearchForm />
+
         <S.TransactionsTable>
           <tbody>
             <tr>
