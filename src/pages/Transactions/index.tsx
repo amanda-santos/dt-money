@@ -1,8 +1,9 @@
 import { ReactElement } from "react";
 
 import { Header, Summary } from "../../components";
-import { useTransactionsContext } from "../../contexts/TransactionsContext";
 import { SearchForm } from "./components/SearchForm";
+import { useTransactionsContext } from "../../contexts/TransactionsContext";
+import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 import * as S from "./styles";
 
@@ -24,11 +25,12 @@ export const Transactions = (): ReactElement => {
                 <td width="50%">{transaction.description}</td>
                 <td>
                   <S.PriceHighlight variant={transaction.type}>
-                    {transaction.price}
+                    {transaction.type === "outcome" && "- "}
+                    {priceFormatter.format(transaction.price)}
                   </S.PriceHighlight>
                 </td>
                 <td>{transaction.category}</td>
-                <td>{transaction.createdAt}</td>
+                <td>{dateFormatter.format(new Date(transaction.createdAt))}</td>
               </tr>
             ))}
           </tbody>
