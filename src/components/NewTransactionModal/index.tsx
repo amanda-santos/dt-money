@@ -20,11 +20,11 @@ export const NewTransactionModal = (): ReactElement => {
           <input type="text" placeholder="Category" required />
 
           <S.TransactionTypeContainer>
-            <S.TransactionTypeButton type="button" variant="income">
+            <S.TransactionTypeButton variant="income" value="income">
               <ArrowCircleUp size={24} />
               Income
             </S.TransactionTypeButton>
-            <S.TransactionTypeButton type="button" variant="outcome">
+            <S.TransactionTypeButton variant="outcome" value="outcome">
               <ArrowCircleDown size={24} />
               Outcome
             </S.TransactionTypeButton>
