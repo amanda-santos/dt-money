@@ -1,14 +1,17 @@
 import { ReactElement } from "react";
+import { useContextSelector } from "use-context-selector";
 
 import { Header, Summary } from "../../components";
 import { SearchForm } from "./components/SearchForm";
-import { useTransactionsContext } from "../../contexts/TransactionsContext";
+import { TransactionsContext } from "../../contexts/TransactionsContext";
 import { dateFormatter, priceFormatter } from "../../utils/formatter";
 
 import * as S from "./styles";
 
 export const Transactions = (): ReactElement => {
-  const { transactions } = useTransactionsContext();
+  const transactions = useContextSelector(TransactionsContext, (context) => {
+    return context.transactions;
+  });
 
   return (
     <div>
