@@ -20,12 +20,14 @@ export const SearchForm = (): ReactElement => {
     register,
     handleSubmit,
     formState: { isSubmitting },
+    reset,
   } = useForm<SearchFormInputs>({
     resolver: zodResolver(searchFormSchema),
   });
 
   const handleSearchTransactions = async (data: SearchFormInputs) => {
     await fetchTransactions(data.query);
+    reset();
   };
 
   return (
