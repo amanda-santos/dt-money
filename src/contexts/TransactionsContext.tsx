@@ -12,6 +12,8 @@ import { Transaction } from "../types";
 
 interface TransactionsContextType {
   transactions: Transaction[];
+  isNewTransactionModalOpen: boolean;
+  setIsNewTransactionModalOpen: (value: boolean) => void;
   createTransaction: (
     data: Omit<Transaction, "id" | "createdAt">
   ) => Promise<void>;
@@ -28,6 +30,8 @@ export const TransactionsProvider = ({
   children,
 }: TransactionsProviderProps): ReactElement => {
   const [transactions, setTransactions] = useState<Transaction[]>([]);
+  const [isNewTransactionModalOpen, setIsNewTransactionModalOpen] =
+    useState(false);
 
   const fetchTransactions = useCallback(async (query?: string) => {
     const response = await api.get("transactions", {
@@ -64,7 +68,13 @@ export const TransactionsProvider = ({
 
   return (
     <TransactionsContext.Provider
-      value={{ transactions, createTransaction, fetchTransactions }}
+      value={{
+        transactions,
+        isNewTransactionModalOpen,
+        setIsNewTransactionModalOpen,
+        createTransaction,
+        fetchTransactions,
+      }}
     >
       {children}
     </TransactionsContext.Provider>

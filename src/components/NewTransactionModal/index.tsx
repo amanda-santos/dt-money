@@ -26,6 +26,13 @@ export const NewTransactionModal = (): ReactElement => {
     }
   );
 
+  const setIsNewTransactionModalOpen = useContextSelector(
+    TransactionsContext,
+    (context) => {
+      return context.setIsNewTransactionModalOpen;
+    }
+  );
+
   const {
     control,
     register,
@@ -50,6 +57,7 @@ export const NewTransactionModal = (): ReactElement => {
     });
 
     reset();
+    setIsNewTransactionModalOpen(false);
   };
 
   return (
@@ -70,6 +78,7 @@ export const NewTransactionModal = (): ReactElement => {
           />
           <input
             type="number"
+            step="0.01"
             placeholder="Price"
             required
             {...register("price", { valueAsNumber: true })}
