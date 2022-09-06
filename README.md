@@ -57,6 +57,8 @@ Technologies used to develop this project:
 
 ## 🖥 Preview
 
+https://user-images.githubusercontent.com/49074930/188755293-ab822eba-e2b0-4434-85b7-1784e1458e9a.mp4
+
 Click <a href="https://dt-money-amanda-santos.vercel.app/">here</a> to see it live 📺
 
 ## ⌨ Getting started
